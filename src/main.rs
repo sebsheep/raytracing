@@ -1,9 +1,7 @@
 
 
 
-mod lib;
-
 
 fn main() {
-    lib::create_image()
+    raytracing::create_image().save("sphere.png").unwrap();
 }

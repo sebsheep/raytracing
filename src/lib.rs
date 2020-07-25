@@ -3,9 +3,9 @@ use vec3d::Vec3d;
 
 extern crate image;
 
-const WIDTH:u32 = 1000;
+const WIDTH:u32 = 1920;
 const HALF_WIDTH:f64 = WIDTH as f64/ 2.0;
-const HEIGHT:u32 = 500;
+const HEIGHT:u32 = 1080;
 const HALF_HEIGHT:f64 = HEIGHT as f64/ 2.0;
 const D:f64 = 500.0;
 
@@ -57,7 +57,7 @@ fn color(x: u32, y: u32, center_norm2:f64)  -> image::Rgb<u8> {
     } 
 }
 
-pub fn create_image() {
+pub fn create_image() -> image::ImageBuffer<image::Rgb<u8>, std::vec::Vec<u8>> {
     // Create a new ImgBuf with width: imgx and height: imgy
     let mut imgbuf = image::ImageBuffer::new(WIDTH, HEIGHT);
     let center_norm2 = CENTER.norm2();
@@ -65,7 +65,6 @@ pub fn create_image() {
     for (x, y, pixel) in imgbuf.enumerate_pixels_mut() {
         *pixel = color(x, y, center_norm2);
     }  
-
-    // Save the image as “fractal.png”, the format is deduced from the path
-    imgbuf.save("sphere.png").unwrap();
+    
+    imgbuf
 }

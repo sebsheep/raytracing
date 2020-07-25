@@ -1,5 +1,5 @@
 [package]
-name = "rs"
+name = "raytracing"
 version = "0.1.0"
 authors = ["Sébastien Besnier <sebastien.fabrice.besnier@gmail.com>"]
 edition = "2018"
